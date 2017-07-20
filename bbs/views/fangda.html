@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+   <link rel="stylesheet" href="static/fangda.css">
+</head>
+<body>
+<div class="outer">
+    <div class="img-box">
+        <img style="height: 420px; width: 420px;" src="https://img.alicdn.com/imgextra/i3/2763032887/TB2hBoNc88lpuFjy0FnXXcZyXXa_!!2763032887.jpg_430x430q90.jpg" />
+        <div class="float"></div>
+    </div>
+    <div class="img-big">
+        <img src="https://img.alicdn.com/imgextra/i3/2763032887/TB2hBoNc88lpuFjy0FnXXcZyXXa_!!2763032887.jpg"/>
+    </div>
+</div>
+<!--418 218.39 800-->
+<script src="../static/jquery-3.2.1.js"></script>
+<script>
+    $('.img-box').mouseover(function () {
+        $('.outer .img-box .float').css('display', 'block');
+        $('.outer .img-big').css('display', 'block');
+    })
+    $('.img-box').mouseout(function () {
+        $('.outer .img-box .float').css('display', 'none');
+        $('.outer .img-big').css('display', 'none');
+    })
+
+    $('.img-box').mousemove(function (e) {
+        var event = e || window.event;
+        console.log(event.x, '1', event.y);
+        console.log(event.clientX, 'client', event.clientY);
+        console.log(event.offsetX, 'offset', event.offsetY);
+        console.log(event.pageX, 'page', event.pageY);
+        var mouse_x = event.clientX - 22;
+        var mouse_y = event.clientY - 22;
+        console.log(mouse_x ,mouse_y, '======');
+
+        var float_width = $('.float').width();
+        var float_hieght = $('.float').height();
+        var float_width_half = $('.float').width() / 2;
+        var float_hieght_half = $('.float').height() / 2;
+
+        //以float移动模块为左上角为视角，那么移动的范围只能在横坐标>0 到420 - float_width以及纵坐标>0到420-float_height的范围。
+        var float_x = mouse_x - float_width_half;
+        var float_y = mouse_y - float_hieght_half;
+
+        if(float_x < 0){
+            float_x = 0;
+        }else if (float_x > 420 - float_width){
+            float_x = 420 - float_width;
+        }
+
+        if(float_y < 0){
+            float_y = 0;
+        }else if (float_y > 420 - float_width){
+            float_y = 420 - float_width;
+        }
+
+        float_move(float_x, float_y);
+
+    })
+    function float_move(X, Y) {
+
+        $('.float').css('top', Y + 'px');
+        $('.float').css('left', X + 'px');
+
+        rate = 800 / 420;
+        left_w = -(X * rate);
+        top_h = -(Y * rate);
+
+//        show_w = 110 * rate;
+//        show_h = 110 * rate;
+
+        $('.img-big img').css('left', left_w + 'px');
+        $(".img-big img").css('top', top_h + 'px');
+    }
+</script>
+</body>
+</html>

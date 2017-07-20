@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .publish-hover{
+            background: rgba(0, 0 , 0, .2);
+            position: absolute;
+            top: 0;
+            right:0;
+            left:0;
+            bottom:0;
+        }
+        .publish-account{
+            background-color: white;;
+            width:600px;
+            /*height:400px;*/
+            position: absolute;
+            top: 18%;
+            left: 460px;
+            border-radius: 5px;
+            padding-bottom: 20px;
+        }
+        .hide-page{
+            display: none;
+            /*visibility: hidden;*/
+        }
+        body{
+            background-color: darkseagreen;
+        }
+        .icons {
+            background: url(http://dig.chouti.com/images/tip.png?v=2.9) no-repeat 0 -498px;
+        }
+        .btn-close:hover{
+            background-position: 0 -481px;
+        }
+        .btn-close{
+            cursor: pointer;
+            width:15px;
+            height:15px;
+            float: right;
+            margin-top: 7px;
+        }
+        .publish-titlebar{
+            margin-top: 0;
+            height:30px;
+            width:98%;
+            line-height:30px;
+            background-color: #e8ecf5;
+            color: #015e98;
+            font-size: 14px;
+            font-weight:500;
+            padding:0 1%;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        .w{
+            margin: 0 auto;
+            width:95%;
+        }
+        .news-type-select{
+            margin-top: 16px;
+            height:35px;
+            border-bottom: #a6d5ec 1px solid;
+        }
+        .news-type-select .newstype{
+            display: inline-block;
+            width:90px;
+            height:36px;
+            line-height:35px;
+            text-align: center;
+            color: #369;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 5px;
+            cursor: pointer;
+            background: url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 0;
+        }
+        .news-type-select .newstype:hover{
+            font-size: 15px;
+            background: url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 -38px;
+        }
+        .publish-hover .publish-account .link-items{
+            margin-top: 9px;
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: #999;
+        }
+        .publish-hover .publish-account .div-link .input-1{
+            height:25px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(51, 51, 51);
+            border: 5px solid rgb(204, 220, 239);
+            border-radius: 5px;
+        }
+        .publish-hover .publish-account .div-link .input-2{
+            height:33px;
+            background-color:  rgb(204, 220, 239);
+            color: white;
+            width: 100px;
+            border-radius: 3px;
+            margin-left: 10px;
+            border-style: none;
+        }
+        .publish-hover .publish-account .div-link .input-html{
+            width: 445px;
+        }
+        .publish-hover .publish-account .div-link .input-title{
+            width:98.0%;
+            background-color: rgb(236, 233, 216);
+        }
+        .publish-hover .publish-account  textarea:focus{
+            /*border: none;*/
+        }
+        .publish-hover .publish-account  textarea{
+            width:97.6%;
+            height:70px;
+            border: 5px solid rgb(204, 220, 239);
+            border-radius: 5px;
+            background-color: rgb(236, 233, 216);
+        }
+        .publish-hover .publish-account  .input-3{
+            height:28px;
+            background-color:  rgb(204, 220, 239);
+            color: white;
+            padding: 0 10px;
+            border-radius: 3px;
+            margin-left: 10px;
+            border-style: none;
+        }
+        /*.d-hover .d-account .div-link .newstype-isvalid{*/
+        .publish-hover .publish-account  .newstype-isvalid{
+            background-color: #369;
+            font-weight: 700;
+        }
+        .publish-hover .publish-account .aaa{
+            margin-top: 10px;
+            display: inline-block;
+            width:80px;
+            height:27px;
+            float: right;
+            line-height:27px;
+            text-align: center;
+            border-radius:3px;
+            border:none;
+            text-decoration: none;
+            font-size:14px;
+        }
+        .publish-hover .publish-account  .input-publish{
+            background: url(http://dig.chouti.com/images/bottom.png?v=2.8) no-repeat 0 -225px;
+            color: white;
+        }
+        .publish-hover .publish-account .div-text .label{
+            margin:0 auto;
+            margin-bottom: 15px;
+            margin-top: -10px;
+            height:45px;
+            background-color:  rgb(204, 220, 239);
+            line-height:45px;
+            text-align: right;
+            padding-right:10px;
+            width:93.4%;
+            border-radius: 3px;
+            color: #6f98bc;
+            font-size: 14px;
+        }
+        .publish-hover .publish-account .div-pictrue .label{
+            margin:0 auto;
+            margin-bottom: 15px;
+            margin-top: -10px;
+            height:45px;
+            background-color:  rgb(204, 220, 239);
+            line-height:45px;
+            text-align: right;
+            padding-right:10px;
+            width:93.4%;
+            border-radius: 3px;
+            color: #6f98bc;
+            font-size: 14px;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label{
+            margin:0 auto;
+            margin-bottom: 15px;
+            height:45px;
+            background-color:  rgb(204, 220, 239);
+            line-height:45px;
+            text-align: right;
+            padding-right:10px;
+            width:93.4%;
+            border-radius: 3px;
+            color: #6f98bc;
+            font-size: 13px;
+        }
+        .publish-hover .publish-account .div-text textarea{
+            margin-top: 20px;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label{
+            position: relative;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label .input-button{
+            height:33px;
+            background-color:  #369;
+            color: white;
+            width: 70px;
+            border-radius: 3px;
+            margin-left: 10px;
+            border-style: none;
+            position: absolute;
+            top:6px;
+            left:10px;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label .input-file{
+            position: absolute;
+            height:33px;
+            background-color: #f7ecb5;
+            width:80px;
+            top:6px;
+            left:10px;
+            /*visibility: inherit;*/
+            opacity:0;
+        }
+    </style>
+</head>
+<body>
+<div id="publish-hover" class="publish-hover hide-page">
+    <div class="publish-account">
+        <div class="publish-titlebar">分享新发现<div onclick="div_close_click();" class="btn-close icons"></div></div>
+        <div class="news-type-select w">
+            <div class="newstype" name = 'div-link' style="background: url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 -73px;" onclick="newstype_change_click(this);">链接</div>
+            <div class="newstype" name = 'div-text' onclick="newstype_change_click(this);">文字</div>
+            <div class="newstype" name = 'div-pictrue' onclick="newstype_change_click(this);">图片</div>
+        </div>
+        <div>
+            <div id="div-link" class="div-link ">
+                <div class="link-items w" style="margin-top: 15px">添加链接</div>
+                <div class="w">
+                    <input class="input-1 input-html" type="text" placeholder="http://" oninput="http_input_change(this);"/>
+                    <input disabled = 'disabled' class="input-2" type="button" value="获取标题"/>
+                </div>
+                <div class="link-items w">标题</div>
+                <div class="w"><input class="input-1 input-title" type="text" name="title"/></div>
+                <div class="link-items w">添加摘要（选填）</div>
+                <div class="w"><textarea  type="text" name="content"></textarea></div>
+                <div class="link-items w">发布到：
+                    <input class="newstype-isvalid input-3 " type="button" value="42区" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="段子" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="图片" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="挨踢1024" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="问我我答" onclick="newstype_click(this);"/>
+                </div>
+            </div>
+            <div id="div-text" class="div-text hide-page">
+                <div class="w"><textarea  type="text" name="content" placeholder="发布段子..." oninput="textarea_input(this);"></textarea></div>
+                <div class="label">还可以输入<span id="label-span">150</span>字</div>
+                <div class="link-items w">发布到：
+                    <input class="newstype-isvalid input-3 " type="button" value="段子" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="问我我答" onclick="newstype_click(this);"/>
+                </div>
+            </div>
+            <div id="div-pictrue" class="div-pictrue hide-page">
+                <div class="link-items w">添加图片</div>
+                <form class="uploadPicForm" method="post" action="/upload_file" target="uploadIframe" enctype="multipart/form-data">
+                    <div class="file-label">
+                        <input class="input-button" type="button" value="上传" />
+                        <input class="input-file" type="file" name="uploadfile" onchange="hahhah(this);"/>
+                        <span>支持jpg、jpeg、gif、png格式，且不超过5MB</span>
+                    </div>
+                </form>
+                <iframe id="uploadIframe" name="uploadIframe" scrolling="no" height="0px" frameborder="0" style="display:none" src="/blank.html"></iframe>
+                <div class="w"><textarea  type="text" name="content" placeholder="发布段子..." oninput="textarea_input1(this);"></textarea></div>
+                <div class="label">还可以输入<span id="label-span1">150</span>字</div>
+                <div class="link-items w">发布到：
+                    <input class="newstype-isvalid input-3 " type="button" value="图片" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="问我我答" onclick="newstype_click(this);"/>
+                </div>
+            </div>
+        </div>
+        <div class="w"><input  class="aaa input-publish" type="button" value="发布"/><a  class="aaa" href="javascript:;">清空</a></div>
+    </div>
+</div>
+<button id="button"  value="button-123">model-view</button>
+<!--<script src="{{ static_url('jquery-3.2.1.js') }}"></script>-->
+<!--<script src="../statics/jquery-3.2.1.js"></script>-->
+<script src="../statics/jquery-3.2.1.js"></script>
+<script>
+    document.getElementById('button').onclick = popPulishMenuClick;
+    function hahhah(ths) {
+        alert($(ths).val());
+        alert($(ths).contents().find('body').text())
+    }
+
+    function textarea_input(ths) {
+        var count = 150 - $(ths).val().trim().length;
+        $('#label-span').text(count);
+    }
+    function textarea_input1(ths) {
+        var count = 150 - $(ths).val().trim().length;
+        $('#label-span1').text(count);
+    }
+    function newstype_click(ths) {
+        $(ths).addClass('newstype-isvalid');
+        $(ths).siblings().removeClass('newstype-isvalid');
+    }
+    function http_input_change(ths) {
+        if($(ths).val().trim().length != 0){
+//            alert('val')
+            $(ths).next().removeAttr('disabled').css('background-color','#369');
+        }else {
+            $(ths).next().attr('disabled', '').css('background-color','rgb(204, 220, 239)');
+        }
+    }
+    function newstype_change_click(ths) {
+        $(ths).css('background','url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 -73px');
+        $(ths).siblings().css('background','url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 0');
+        var dom  = document.getElementById(ths.getAttribute('name'));
+        dom.classList.remove('hide-page');
+        $(dom).siblings().addClass('hide-page');
+    }
+    function popPulishMenuClick() {
+        document.getElementById('publish-hover').classList.remove('hide-page');
+    }
+    function div_close_click() {
+        document.getElementById('publish-hover').classList.add('hide-page');
+    }
+
+</script>
+</body>
+</html>

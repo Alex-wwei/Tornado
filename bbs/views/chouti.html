@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽屉新搜榜</title>
+    <style type="text/css">
+        .main-w{
+            width:1100px;
+            position: relative;
+            margin:0 auto;
+            top: -16px;
+        }
+        body{
+            margin: 0;
+            background-color: #ededed;
+            /*margin-top: 60px;*/
+        }
+        div.pg-headr{
+            height:44px;
+            background-color: #2459a2;
+            /*background-color: green;*/
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            width: 100%;
+            position: fixed;
+        }
+        .img1-div{
+            float: left;
+        }
+        div.pg-headr .img1-div .a-img{
+            margin:10px 5px;
+            /*position: fixed;*/
+        }
+        .list-div ul{
+            /*position: fixed;*/
+            list-style: none;
+            /*margin-left: 10%;*/
+        }
+        .list-div ul li{
+            float: left;
+            display: inline-block;
+        }
+        .list-div ul li a{
+            display: inline-block;
+            color: white;
+            width:70px;
+            height:44px;
+            text-decoration: none;
+            font-size: 90%;
+            line-height:44px;
+            text-align: center;
+        }
+        .list-div ul li a:hover{
+            background-color: #396bb3;
+        }
+        .account ul{
+            list-style-type: none;
+        }
+        .account ul li {
+            float: right;
+        }
+        .account ul li a{
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            color: white;
+            width:55px;
+            height: 44px;
+            font-size: 90%;
+            overflow: hidden;
+            /*只有在overflowhiden的时候次啊面一句才会起作用*/
+            text-overflow: ellipsis;
+            line-height:44px;
+
+        }
+        .account ul li a:hover{
+            background: #396bb3;
+        }
+        .pg-body .left-view{
+            float: left;
+            width: 68%;
+            margin-top: 58px;
+            background-color: white;
+            /*opacity:0;*/
+        }
+        .pg-body .right-view{
+            margin-top: 58px;
+            height:1400px;
+            background: honeydew;
+            float: right;
+            width:31.5%;
+        }
+        .pg-flooter {
+            height: 110px;
+            width:1100px;
+            margin:0 auto;
+            background: #fff;
+            clear: both;
+            border-top: solid 1px rgb(204, 220, 239);
+        }
+        .pg-flooter .text-1{
+            text-align: center;
+            margin:0 260px;
+        }
+        .pg-flooter .text-1 .text-1111{
+            float: left;
+            text-decoration: none;
+            text-align: center;
+        }
+        .pg-flooter .text-1 .text-111{
+            float: left;
+            font-size: medium;
+            text-decoration: none;
+            width:28px;
+            text-align: center;
+        }
+        .pg-flooter .text-1 .text-11{
+            font-size: 14px;
+            line-height:44px;
+            color: #369;
+        }
+        .pg-flooter p{
+            display: block;
+            width:100%;
+            margin:10px auto;
+            text-align: center;
+            clear: both;
+        }
+        .bg_color{
+            background: #fff;
+        }
+        .left-nav-item{
+            float: left;
+        }
+        .right-nav-item{
+            float: right;
+        }
+        .content-nav{
+            height:55px;
+            border-bottom:solid 2px rgb(204, 220, 239);
+            /*background-color: red;*/
+        }
+        .content-nav .right-nav-item{
+            margin-top: 11px;
+        }
+        .content-nav .left-nav-item{
+            margin-top: 12px;
+            margin-left: 10px;
+        }
+        .content-nav .left-nav-item a{
+            display: inline-block;
+            line-height:29px;
+            height:29px;
+            width:55px;
+            padding:0 3px ;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            color: #369;
+            text-align: center;
+        }
+        .content-nav .right-nav-item span{
+            line-height:30px;
+            padding:0 6px;
+            font-size: 13px;
+        }
+        .pg-body .left-view .artical{
+            width:98%;
+            margin:0 auto;
+            padding:10px 7px;
+            position: relative;                                                     /*文章列表宽度*/
+            /*background-color: #5cb85c;*/
+        }
+        .pg-body .left-view .artical .title{
+            float: left;
+            width:87%;
+            display: inline-block;
+            /*height:25px;*/
+            color: #c0c0c0;
+            line-height:22px;
+            font-size:13px;
+            padding:0 5px;
+        }
+        .pg-body .left-view .artical .title span{
+            margin-left: 15px;
+        }
+        .pg-body .left-view .artical .title .title-b{
+            margin-left: 10px;
+            color: #c0c0c0;
+            text-decoration: underline;
+        }
+        .pg-body .left-view .artical .title .title-a{
+            text-decoration:none;
+            display: inline-block;
+            /*height: 20px;*/
+            /*width:100%;*/
+            line-height:20px;
+            color: #369;
+            font-weight: 600;
+            font-family: 华文宋体;
+            font-size: 15px;
+            word-wrap:break-word;
+            word-break:break-all;
+        }
+        .pg-body .left-view .content{
+            float: left;
+            width:86.5%;
+            font-size: 14px;
+            color: gray;
+            margin-top: 2px;
+            font-family: 新宋体;
+            margin-left: 3px;
+            padding:0 5px;
+            word-wrap:break-word;
+            word-break:break-all;
+        }
+        .pg-body .left-view .artical .title .title-a:hover{
+            text-decoration:underline;
+        }
+        .pg-body .left-view .artical .title .title-b:hover{
+            text-decoration:underline;
+            color: #369;
+        }
+        .pg-body .left-view .artical img{
+            float: right;
+            width:8.5%;
+            height: 8.5%;
+            padding:1.3px 1.3px;
+            border:1px solid gray;
+            margin-top: 5px;
+            margin-right: 2px;
+        }
+        .pg-body .left-view .artical img:hover{
+            cursor: zoom-in;
+        }
+        .pg-body .left-view .artical .zoon-img{
+            position: absolute;
+            top: 8px;
+            right:5px;
+            display: none;
+            z-index:920;
+        }
+        .pg-body .left-view .artical .zoon-img:hover{
+            cursor: zoom-out;
+        }
+        .pg-body .left-view .artical .foot-bar{
+            display: inline-block;
+            float: left;
+            width:88%;
+            height:30px;
+            line-height:30px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+        .pg-body .artical .foot-bar a{
+            text-decoration: none;
+            padding:1px 3px;
+            height:20px;
+        }
+        .pg-body .artical .foot-bar  div{
+            float: left;
+            display: inline-block;
+            font-weight: bold;
+            margin-left: 7px;
+            height:25px;
+            color: #99aecb;
+            opacity:0.8;
+            cursor: pointer;
+            padding:4px 3px;
+            line-height:25px;
+            text-align: center;
+            font-size: 12px;
+            margin-right: 17px;
+        }
+
+        .pg-body .artical .foot-bar .sicang{
+            font-size: 12px;
+            color: #99aecb;
+        }
+        .pg-body .artical .foot-bar div:hover{
+            text-decoration: underline;
+            font-weight: bold;
+            color: #369;
+        }
+        .artical .foot-bar a .user-icon{
+            display: inline-block;
+            width:13px;
+            height:13px;
+            line-height:15px;
+            float: left;
+            margin-top: 6px;
+            margin-left: 8px;
+            margin-right: 2px;
+            padding:2.3px 2.3px;
+            border: 1px lightgrey solid;
+            background: url("http://img2.chouti.com/group3/M00/DF/B0/wKgCCFD_nZusgE8kAAAb4OtONQE435=15x15.jpg") no-repeat 1.5px 1.5px;
+        }
+         .artical .foot-bar .username-a{
+             font-size: 13px; color: #99aecb; margin-right: 6px;
+         }
+        .artical .foot-bar .username-a:hover{
+            text-decoration: underline;
+            font-weight: bold;
+            color: #369;
+        }
+        .artical .foot-bar div span{
+            float: left;
+            display: inline-block;
+            margin-top: 4px;
+            padding-right: 6px;
+            height:18px;
+            width:18px;
+        }
+        .artical .foot-bar .zan:hover{
+            background: url("http://dig.chouti.com/images/icon_18_118.png?v=2.13") no-repeat 0 -1px;
+        }
+        .artical .foot-bar .conment:hover{
+            background: url("http://dig.chouti.com/images/icon_18_118.png?v=2.13") no-repeat  0 -60px;
+        }
+        .artical .foot-bar .recv:hover{
+            background: url("http://dig.chouti.com/images/icon_18_118.png?v=2.13") no-repeat 0 -121px;
+            margin-right: 10px;
+        }
+        .artical .foot-bar .zan{
+            background: url("http://dig.chouti.com/images/icon_18_118.png?v=2.13") no-repeat 0 -41px;
+        }
+        .artical .foot-bar .conment{
+            background: url("http://dig.chouti.com/images/icon_18_118.png?v=2.13") no-repeat  0 -100px;
+        }
+        .artical .foot-bar .recv{
+            background: url("http://dig.chouti.com/images/icon_18_118.png?v=2.13") no-repeat 0 -161px;
+            margin-right: 10px;
+        }
+        .artical .foot-bar .recv1{
+            background: url("//img2.chouti.com/CHOUTI_380B151E15484195973AE57688930211_W664H664=C60x60.jpg") no-repeat;
+            /*background-position: 0 -161px;*/
+            margin-left: 20px;
+             margin-right: 3px;
+        }
+        .d-hover{
+            background: rgba(0, 0 , 0, .4);
+            position: fixed;
+            top: 0;
+            right:0;
+            left:0;
+            bottom:0;
+            z-index: 1000;
+        }
+        .d-account{
+            background-color: white;;
+            width:50%;
+            height:400px;
+            position: absolute;
+            top: 22%;
+            left:25%;
+            border-radius: 5px;
+        }
+        .display-hide{
+            visibility: hidden;
+        }
+        .icons {
+            background: url(http://dig.chouti.com/images/tip.png?v=2.9) no-repeat 0 -498px;
+        }
+        .btn-close:hover{
+            background-position: 0 -481px;
+        }
+        .btn-close{
+            cursor: pointer;
+            width:15px;
+            height:15px;
+            float: right;
+            margin-top: 7px;
+        }
+        .d-view{
+            float: left;
+            height:100%;
+            width:50%;
+            /*background-color: red;*/
+        }
+        .d-rview{
+            border-top-right-radius: 5px;
+        }
+        .d-lview {
+            border-top-left-radius: 5px;
+        }
+        .d-title{
+            margin-top: 0;
+            height:30px;
+            width:100%;
+            line-height:30px;
+            background-color: #e7ecf2;
+            color: #015e98;
+            font-size: 14px;
+            font-weight:500;
+            padding:0 1%;
+
+        }
+        .d-rtitle{
+            float: right;
+            border-top-right-radius: 5px;
+        }
+        .d-ltitle{
+            float: left;
+            border-top-left-radius: 5px;
+        }
+        .d-tring{
+            background-color: #e7ecf2;
+            height:100%;
+            width:1px;
+            position: absolute;
+            top:0;
+            left:49.9%;
+        }
+        .input-div{
+            width:60%;
+            margin:20px auto;
+            /*background: grey;*/
+            font-size: 13px;
+            line-height:25px;
+        }
+        .input-div .input-1{
+            width:99%;
+            height:25px;
+        }
+        .input-div .input-2{
+            width:58%;
+            height:25px;
+            /*background: red;*/
+        }
+        .log-info{
+            text-align: center;
+            color: darkgray;
+        }
+        .input-div a{
+            margin-left: 30px;
+        }
+        .input-div .button{
+            background-color: #015e98;
+            color: white;
+            width:45%;
+            height:33px;
+            border-style: none;
+        }
+        .publish-hover{
+            background: rgba(0, 0 , 0, .4);
+            position: fixed;
+            top: 0;
+            right:0;
+            left:0;
+            bottom:0;
+            z-index:900;
+        }
+        .publish-account{
+            background-color: white;;
+            width:600px;
+            position: absolute;
+            top: 18%;
+            left: 30%;
+            border-radius: 5px;
+            padding-bottom: 20px;
+        }
+        .hide-page{
+            display: none;
+            /*visibility: hidden;*/
+        }
+        .publish-titlebar{
+            margin-top: 0;
+            height:30px;
+            width:98%;
+            line-height:30px;
+            background-color: #e8ecf5;
+            color: #015e98;
+            font-size: 14px;
+            font-weight:500;
+            padding:0 1%;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        .w-publish{
+            margin: 0 auto;
+            width:95%;
+        }
+        .news-type-select{
+            margin-top: 16px;
+            height:35px;
+            border-bottom: #a6d5ec 1px solid;
+        }
+        .news-type-select .newstype{
+            display: inline-block;
+            width:90px;
+            height:36px;
+            line-height:35px;
+            text-align: center;
+            color: #369;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 5px;
+            cursor: pointer;
+            background: url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 0;
+        }
+        .news-type-select .newstype:hover{
+            font-size: 15px;
+            background: url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 -38px;
+        }
+        .publish-hover .publish-account .link-items{
+            margin-top: 9px;
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: #999;
+        }
+        .publish-hover .publish-account .div-link .input-1{
+            height:25px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(51, 51, 51);
+            border: 5px solid rgb(204, 220, 239);
+            border-radius: 5px;
+        }
+        .publish-hover .publish-account .div-link .input-2{
+            height:33px;
+            background-color:  rgb(204, 220, 239);
+            color: white;
+            width: 100px;
+            border-radius: 3px;
+            margin-left: 10px;
+            border-style: none;
+        }
+        .publish-hover .publish-account .div-link .input-html{
+            width: 445px;
+        }
+        .publish-hover .publish-account .div-link .input-title{
+            width:98.0%;
+            background-color: rgb(236, 233, 216);
+        }
+        .publish-hover .publish-account  textarea{
+            width:97.6%;
+            height:70px;
+            border: 5px solid rgb(204, 220, 239);
+            border-radius: 5px;
+            background-color: rgb(236, 233, 216);
+        }
+        .publish-hover .publish-account  .input-3{
+            height:28px;
+            background-color:  rgb(204, 220, 239);
+            color: white;
+            padding: 0 10px;
+            border-radius: 3px;
+            margin-left: 10px;
+            border-style: none;
+        }
+        /*.publish-hover .publish-account .div-link .newstype-isvalid{*/
+        .publish-hover .publish-account  .newstype-isvalid{
+            background-color: #369;
+            font-weight: 700;
+        }
+        .publish-hover .publish-account .aaa{
+            margin-top: 10px;
+            display: inline-block;
+            width:80px;
+            height:27px;
+            float: right;
+            line-height:27px;
+            text-align: center;
+            border-radius:3px;
+            border:none;
+            text-decoration: none;
+            font-size:14px;
+        }
+        .publish-hover .publish-account  .input-publish{
+            background: url(http://dig.chouti.com/images/bottom.png?v=2.8) no-repeat 0 -225px;
+            color: white;
+        }
+        .publish-hover .publish-account .div-text .label{
+            margin:0 auto;
+            margin-bottom: 15px;
+            margin-top: -10px;
+            height:45px;
+            background-color:  rgb(204, 220, 239);
+            line-height:45px;
+            text-align: right;
+            padding-right:10px;
+            width:93.4%;
+            border-radius: 3px;
+            color: #6f98bc;
+            font-size: 14px;
+        }
+        .publish-hover .publish-account .div-pictrue .label{
+            margin:0 auto;
+            margin-bottom: 15px;
+            margin-top: -10px;
+            height:45px;
+            background-color:  rgb(204, 220, 239);
+            line-height:45px;
+            text-align: right;
+            padding-right:10px;
+            width:93.4%;
+            border-radius: 3px;
+            color: #6f98bc;
+            font-size: 14px;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label{
+            margin:0 auto;
+            margin-bottom: 15px;
+            height:45px;
+            background-color:  rgb(204, 220, 239);
+            line-height:45px;
+            text-align: right;
+            padding-right:10px;
+            width:93.4%;
+            border-radius: 3px;
+            color: #6f98bc;
+            font-size: 13px;
+        }
+        .publish-hover .publish-account .div-text textarea{
+            margin-top: 20px;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label{
+            position: relative;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label .input-button{
+            height:33px;
+            background-color:  #369;
+            color: white;
+            width: 70px;
+            border-radius: 3px;
+            margin-left: 10px;
+            border-style: none;
+            position: absolute;
+            top:6px;
+            left:10px;
+        }
+        .publish-hover .publish-account .div-pictrue .file-label .input-file{
+            position: absolute;
+            height:33px;
+            background-color: #f7ecb5;
+            width:80px;
+            top:6px;
+            left:10px;
+            opacity:0;
+        }
+        .pg-body .left-view .artical .foot-bar .zan-actived{
+            background: url(http://dig.chouti.com/images/icon_18_118.png?v=2.13) no-repeat 0 -21px;
+        }
+        .pg-body .left-view .artical .foot-bar .zan-span{
+            /*display: inline-block;*/
+            position:absolute;
+            display: none;
+            bottom:20px;
+            left:30px;
+        }
+        .pg-body .left-view .artical .conment-ui{
+            border: 1px solid #cbdcee;
+            background-color: #f6f6f6;
+            padding: 10px 15px;
+            padding-bottom: 3px;
+            margin-left: 8px;
+            width: 94%;
+            border-radius: 5px;
+            clear: both;
+            margin-bottom: 15px;
+            position: relative;
+            display: none;
+        }
+        .pg-body .left-view .artical .conment-ui .conment-titlebar{
+            margin-top: -3px;
+            margin-bottom: 13px;
+            height:25px;
+            border-bottom: 1px lightgrey dashed;
+        }
+        .pg-body .left-view .artical .conment-ui .conment-titlebar span{
+            float: left;
+            display: inline-block;
+            margin-right: 3px;
+            font-size: 13px;
+            color: #333;
+            /*background-color: #a6d5ec;*/
+        }
+        .pg-body .left-view .artical .conment-ui .conment-titlebar a{
+            float: right;
+            display: inline-block;
+            width:10px;
+            height:9px;
+            margin-top: 5px;
+            background: url(http://dig.chouti.com/images/pinglun.png?v=2.7) no-repeat 0 -28px;
+            cursor: pointer;
+        }
+        .pg-body .left-view .artical .conment-ui .conment-titlebar a:hover{
+            background: url(http://dig.chouti.com/images/pinglun.png?v=2.7) no-repeat 0 -38px;
+        }
+        .pg-body .left-view .artical .conment-ui .conment-titlebar .report-img{
+            height:15px;
+            width:15px;
+            margin-left: 20px;
+            background: url(http://dig.chouti.com/images/pinglun.png?v=2.7) no-repeat 0 -3px;
+        }
+        .pg-body .left-view .artical .conment-ui .conment-titlebar .report-response{
+            cursor: pointer;
+        }
+        .pg-body .left-view .artical .conment-ui .arrow{
+            background: url(http://dig.chouti.com/images/pinglun.png?v=2.7) no-repeat 0 0;
+            height:7px;
+            width:12px;
+            position: absolute;
+            display: inline-block;
+            /*background-color: #a6d5ec;*/
+            top: -7px;
+            left: 74px;
+        }
+        .pg-body .left-view .artical .conment-ui .close-img{
+            background: url(http://dig.chouti.com/images/pinglun.png?v=2.7) no-repeat 0 -18px;
+            height:10px;
+            width:12px;
+            display: inline-block;
+        }
+        .pg-body .left-view .artical .conment-ui .input-text{
+            float: left;
+            height:25px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(51, 51, 51);
+            border: 5px solid rgb(204, 220, 239);
+            border-radius: 5px;
+            width:85%;
+            resize: none;
+        }
+        .pg-body .left-view .artical .conment-ui .input-pinglun{
+            float: right;
+            height:36px;
+            background-color: rgb(204, 220, 239);
+            width:10%;
+            margin-left: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .pg-body .left-view .artical .conment-ui .loading-ico-top {
+            margin-left: 36%;
+            display: inline-block;
+            background: url(http://dig.chouti.com/images/loadinfo.gif) no-repeat 0 6px;
+            padding-left: 28px;
+            color: #369;
+            /*margin-right: 0;*/
+            margin-bottom: 10px;
+            height:28px;
+            line-height:33px;
+        }
+    </style>
+    <!--<link rel="stylesheet" href="{{ static_url('bootstrap4/css/bootstrap.css') }}">-->
+</head>
+<body>
+<div id="publish-hover" class="publish-hover hide-page">
+    <div class="publish-account">
+        <div class="publish-titlebar">分享新发现<div onclick="div_close_click();" class="btn-close icons"></div></div>
+        <div class="news-type-select w-publish">
+            <div class="newstype" name = 'div-link' style="background: url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 -73px;" onclick="newstype_change_click(this);">链接</div>
+            <div class="newstype" name = 'div-text' onclick="newstype_change_click(this);">文字</div>
+            <div class="newstype" name = 'div-pictrue' onclick="newstype_change_click(this);">图片</div>
+        </div>
+        <div>
+            <div id="div-link" class="div-link ">
+                <div class="link-items w-publish" style="margin-top: 15px">添加链接</div>
+                <div class="w-publish">
+                    <input class="input-1 input-html link-url" type="text" placeholder="http://" oninput="http_input_change(this);"/>
+                    <input disabled = 'disabled' class="input-2" type="button" value="获取标题"/>
+                </div>
+                <div class="link-items w-publish">标题</div>
+                <div class="w-publish"><input class="input-1 input-title link-title" type="text" name="title"/></div>
+                <div class="link-items w-publish">添加摘要（选填）</div>
+                <div class="w-publish"><textarea class= "link-content" type="text" name="content"></textarea></div>
+                <div id="items-link" class="link-items w-publish items-link">发布到：
+                    <input class="newstype-isvalid input-3 " type="button" name="1" value="42区" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" name="2" value="段子" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" name="3" value="图片" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button"  name="4" value="挨踢1024" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" name="5" value="问我我答" onclick="newstype_click(this);"/>
+                </div>
+            </div>
+            <div id="div-text" class="div-text hide-page">
+                <div class="w-publish"><textarea class="text-content" type="text" name="content" placeholder="发布段子..." oninput="textarea_input(this);"></textarea></div>
+                <div class="label">还可以输入<span id="label-span">150</span>字</div>
+                <div class="link-items w-publish items-text">发布到：
+                    <input class="newstype-isvalid input-3 " type="button" value="段子" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="问我我答" onclick="newstype_click(this);"/>
+                </div>
+            </div>
+            <div id="div-pictrue" class="div-pictrue hide-page">
+                <div class="link-items w-publish">添加图片</div>
+                <form id="uploadPicForm" class="uploadPicForm" method="post" action="/upload_file" target="uploadIframe" enctype="multipart/form-data">
+                    <div class="file-label">
+                        <input class="input-button" type="button" value="上传" />
+                        <input class="input-file" type="file" name="uploadfile" onchange="fileChanged(this);"/>
+                        <span>支持jpg、jpeg、gif、png格式，且不超过5MB</span>
+                    </div>
+                </form>
+                <iframe  id="uploadIframe" class="w-publish uploadIframe" style="background-color: rgb(204, 220, 239);display: none;" name="uploadIframe" scrolling="no"  frameborder="0" src="http://img2.chouti.com/CHOUTI_3143396F3D674344AFC107033375A08F_W1024H768=420x185.jpg"></iframe>
+                <div class="w-publish"><textarea class="pic-content" type="text" name="content" placeholder="发布段子..." oninput="textarea_input1(this);"></textarea></div>
+                <div class="label">还可以输入<span id="label-span1">150</span>字</div>
+                <div class="link-items w-publish items-pic">发布到：
+                    <input class="newstype-isvalid input-3 " type="button" value="图片" onclick="newstype_click(this);"/>
+                    <input class="input-3 " type="button" value="问我我答" onclick="newstype_click(this);"/>
+                </div>
+            </div>
+        </div>
+        <div class="w-publish"><input  class="aaa input-publish" onclick="publish_ajax();" type="button" value="发布"/><a  class="aaa" href="javascript:">清空</a></div>
+    </div>
+</div>
+<div id="d-hover" class="d-hover display-hide">
+    <div id="d-accout" class="d-account">
+        <div class="d-tring" ></div>
+        <div class="d-lview d-view">
+            <div class="d-ltitle d-title">登陆</div>
+            <div class="input-div log-info" style="margin-top: 50px"><pre>用户名登录 | 邮箱登录</pre></div>
+            <div class="input-div log-error-info display-hide" style="font-size: 12px;margin-bottom: -18px;line-height: 18px; height: 17px;background-color: #f7ecb5; margin-top: -10px;">用户名或密码错误。</div>
+            <div class="input-div"><input class="input-1 user-input1" type="text" name="username" placeholder="用户名或邮箱"/></div>
+            <div class="input-div"><input class="input-1 pwd-input1" type="password" name="pwd" placeholder="请输入密码"/></div>
+            <div class="input-div"><input class="input-2 checkcode-input1" type="text" name="check_code" placeholder="请输入验证码"/><img id="check_img" style="float:right;cursor:pointer;" src="/checkcode" onclick="check_code(this);"/></div>
+            <div class="input-div"><input type="checkbox" class="checkbox-input" name="auto_log" />一个月内自动登录<a href="javascript:;">忘记密码？</a></div>
+            <div class="input-div"><input class="button" type="submit" onclick="login_click();" value="登录"/></div>
+        </div>
+        <div class="d-rview d-view">
+            <div class="d-rtitle d-title">注册<div onclick="hide_popmenu_click();" class="btn-close icons"></div></div>
+            <div class="input-div log-info" style="margin-top: 50px"><pre>输入注册信息</pre></div>
+            <div class="input-div reg-error-info display-hide" style="font-size: 12px;margin-bottom: -18px;line-height: 18px; height: 17px;background-color: #f7ecb5; margin-top: -10px;">用户名或密码格式错误。</div>
+            <div class="input-div"><input class="input-1 user-input" type="text" name="username" placeholder="请输入用户名"/></div>
+            <div class="input-div"><input class="input-1 mail-inpout" type="text" name="pwd" placeholder="请输入邮箱"/></div>
+            <div class="input-div"><input class="input-2 checkcode-input" type="text" name="check_code" placeholder="输入邮箱验证码"/><input class="obtain_code" onclick="get_mail_code();" style="font-size: 13px;color: white;background-color: #015e98;width: 35%; margin-top: 1px;float:right;height: 28px;" type="button"  value="获取验证码"/></div>
+            <div class="input-div"><input class="input-1 pwd-input" type="password" name="pwd" placeholder="请输入密码"/></div>
+            <div class="input-div"><input class="button"  type="submit" onclick="regist_click();" value="注册"/></div>
+        </div>
+    </div>
+</div>
+<div class="pg-headr">
+    <div class="main-w">
+        <div class="img1-div">
+            <a href="http://dig.chouti.com" ><img src="http://dig.chouti.com/images/logo.png" class="a-img" /></a>
+        </div>
+        <div class="list-div">
+            <ul>
+                <li><a href="javascript:;">全部</a></li>
+                <li><a href="javascript:;">42区</a></li>
+                <li><a href="javascript:;">段子</a></li>
+                <li><a href="javascript:;">图片</a></li>
+                <li><a href="javascript:;">挨踢1024</a></li>
+            </ul>
+        </div>
+        <div class="account">
+            {% if islogin %}
+            <ul class="ul">
+                <li style="padding: 7px 5px;;"><input type="text" active="login-active" style="height: 25px;width: 100px;" /></li>
+                <li><a>{{ user['name'] }}</a></li>
+                <li><a><img style="width: 30px; height: 30px; margin-top: 5px; border-radius: 50%" src="//img2.chouti.com/CHOUTI_380B151E15484195973AE57688930211_W664H664=C60x60.jpg"/></a></li>
+                <li><a>通知</a></li>
+                <li><a>动态</a></li>
+            </ul>
+            {% else %}
+            <ul>
+                <li style="padding: 7px 5px;;"><input type="text" style="height: 25px;width: 100px;"/></li>
+                <li><a href="javascript:;"  onclick="pop_menu_click();">注册</a></li>
+                <li><a href="javascript:;" onclick="pop_menu_click();">登陆</a></li>
+            </ul>
+            {% end %}
+        </div>
+    </div>
+</div>
+<div class="pg-body main-w">
+    <div class="left-view">
+        <div class="content-nav bg_color">
+            <div class="left-nav-item">
+                <a href="javascript:;" style="margin-left: 8px;background-image: url(http://dig.chouti.com/images/tip.png?v=2.9);background-position:0 -298px">最热</a>
+                <a href="javascript:;">最新</a>
+                <a href="javascript:;">人类发布</a>
+            </div>
+            <div class="right-nav-item">
+                <span style="color: gray;">即时排布</span>
+                <span style="color: #390;">24小时</span>
+                <span style="color: #390;">3天</span>
+                <input type="button" value="+发布" style="background-color: #8eb031; height: 32px; font-size: 18px; width: 100px;text-align: center;margin-right: 5px;;" onclick="popPulishMenuClick();">
+            </div>
+        </div>
+        {% for atc in article %}
+        <div class="artical">
+            <div class="title"><a class="title-a"   href="http://{{ atc['url'] }}" target="_blank">{{ atc['title'] }}</a><span>-finance.sina.com</span><a class="title-b" href="javascript:">{{ atc.get('newstype') }}</a></div>
+            <img src="http://img2.chouti.com/CHOUTI_FDFAC082E4F84F0699A4F573B1DE73B6_W506H544=C60x60.gif" alt="加载失败了..." onclick="zoom_in(this);"/>
+            <img class="zoon-img" src="http://img2.chouti.com/CHOUTI_157D4928B0C0470EB12DEE1BFB8E323E_W690H2723=C200x200.jpg" alt="加载失败了..." onclick="zoom_out(this);" />
+            <div class="content"><a>{{ atc['content'] }}</a></div>
+            <div class="foot-bar" news_id = '{{ atc.get("news_id") }}'>
+            {% if atc['info'] == '1' %}
+                <div class="zan-div favActived" style="margin-left: 0" onclick="favClick(this);"><span class="zan zan-actived"></span>{{ atc['fav_count'] }}</div>
+            {% else %}
+                <div id="zan-div" class="zan-div" style="margin-left: 0" onclick="favClick(this);"><span class="zan"></span>{{ atc['fav_count'] }}</div>
+            {% end if %}
+                <span class="zan-span" ></span>
+                <div id="cnm{{ atc.get('news_id') }}" class="cnmt-div" news_id = '{{ atc.get("news_id") }}' onclick="cnmClick(this);"><span class="conment"></span>16</div>
+                <div class="sicang" onclick="recvClick(this);"><span style="margin-right: -1px" class="recv"></span>私藏</div>
+                <a class="username-a" href="javascript:void(0);" ><span class="user-icon"></span>{{ atc.get('username') }}</a>
+                <a href="javascript:void(0);" style="font-size: 12px; color: lightcoral;">{{ atc['time'] }}</a><span style="font-size: 11px; color: #c0c0c0;">入热榜</span>
+            </div>
+            <div id="{{ atc.get('news_id') }}" class="conment-ui" >
+                <div class="pinglun-pic arrow" id="comt-arrow-12143726" ></div>
+                <div class="conment-titlebar"><span>最新评论</span><span class="report-response"><span class="pinglun-pic report-img"></span><span>去评论页面</span></span><a class = '{{ atc.get("news_id") }}' news_id = '{{ atc.get("news_id") }}' class="pinglun-pic" onclick="closeCmtList(this);"></a></div>
+                <div class="loading-ico-top">加载中，请稍候...</div>
+                <div class="conment-list" style="display: none;">
+                    <div><textarea class="input-text" ></textarea><input class="input-pinglun" type="button" value="评论" /></div>
+                    <div  style="text-align: right; "><span news_id = '{{ atc.get("news_id") }}' onclick="closeCmtList(this);" style="display: inline-block;cursor: pointer; margin-right:15px;margin-top: 8px"><span class="close-img"></span><span style="font-size: 12px;color: #99aecb; font-family: 新宋体;">收起</span></span></div>
+                </div>
+            </div>
+            <div style="clear:both;height: 0;width: 99%; margin: -10px auto;border-bottom: 1px solid;border-bottom-color: rgb(204, 220, 239);"></div>
+        </div>
+        {% end %}
+    </div>
+    <div class="right-view">12345</div>
+</div>
+<div class="pg-flooter">
+        <div class="text-1">
+            <a href="" class="text-11 text-1111">关于我们</a>
+            <span class="text-11 text-111">|</span>
+            <a href="" class="text-11 text-1111">联系我们</a>
+            <span class="text-11 text-111">|</span>
+            <a href="" class="text-11 text-1111">服务条款</a>
+            <span class="text-11 text-111">|</span>
+            <a href="" class="text-11 text-1111">隐私政策</a>
+            <span class="text-11 text-111">|</span>
+            <a href="" class="text-11 text-1111">意见反馈</a>
+            <span class="text-11 text-111">|</span>
+            <a href="" class="text-11 text-1111">意见反馈</a>
+            <span class="text-11 text-111">|</span>
+            <a href="" class="text-11 text-1111">意见反馈</a>
+            <!--<br />-->
+        </div>
+    <p style="color: gray; font-size: 14px;">违法和不良信息举报： 电话：010-58302039 邮箱：<a href="" style="color: #369; font-size: 14px;">sjdfljsdf@163.com</a></p>
+    <p style="color: gray; font-size: 13px;">版权所有：北京格致璞科技有限公司</p>
+    <div class="text-2"></div>
+        <div class="text-3"></div>
+    </div>
+<script src="{{ static_url('jquery-3.2.1.js') }}"></script>
+<script>
+    function closeCmtList(ths) {
+        console.log(ths, 'ths');
+        var idn = $(ths).attr('news_id');
+        var ui = document.getElementById(idn);
+        $(ui).css('display', 'none');
+
+        var idn1 = '#' + 'cnm' + $(ths).attr('news_id');
+        $(idn1).removeClass('zhankai');
+//        $('.cnmt-div').removeClass('zhankai');
+    }
+    function cnmClick(ths) {
+        if ($(ths).hasClass('zhankai')){
+            $(ths).removeClass('zhankai');
+
+            var cl = '.' + $(ths).attr('news_id');
+            console.log($(cl)[0],'--------==');
+            self.closeCmtList($(cl)[0]);
+
+        }else {
+            $(ths).addClass('zhankai');
+            jQuery(ths).parent().next().css('display', 'block');
+            jQuery(ths).parent().next().children('.loading-ico-top').css('display', 'inline-block');
+            jQuery(ths).parent().next().children('.conment-list').css('display', 'none');
+            jQuery.ajax({
+                url:'/getConmts',
+                type:'get',
+                data:{},
+                success:function (args) {
+                    console.log(args);
+                    jQuery(ths).parent().next().children('.loading-ico-top').css('display', 'none');
+                    jQuery(ths).parent().next().children('.conment-list').css('display', 'block');
+                }
+            })
+        }
+    }
+    function favClick(ths) {
+
+        if ($('.pg-headr .account ul input').attr('active') == 'login-active'){
+
+            if ($(ths).hasClass('favActived')){          //-1
+
+                var favCount = parseInt($(ths).text());
+                var h = $(ths).html();
+                var index = h.search(String(favCount));
+
+                var b = 25;
+                var l = 30;
+                var s = 20;
+                var o = 1.0;
+                $(ths).next().text('-1');
+                var t = setInterval(function () {
+                    if (o <= 0){
+                        clearInterval(t);
+                        $(ths).next().css('display','none');
+                        return
+                    }
+                    $(ths).next().css({'display':'inline-block', 'bottom':b, 'left':l, 'font-size':s, 'color':'#369', 'opacity':o});
+                    b += 5; l += 1;s += 8;o -= 0.1;
+                }, 30);
+
+                $(ths).html(h.slice(0, index) + String(favCount - 1));
+                $(ths).children().each(function (k, v) {
+                    $(ths).removeClass('favActived');
+                    $(v).removeClass('zan-actived');
+//                    $(v).css('background','url(http://dig.chouti.com/images/icon_18_118.png?v=2.13) no-repeat 0 -41px');
+                });
+
+                $.ajax({
+                    url:'/upload_file',
+                    type:'get',
+                    data:{'id': $(ths).parent().attr('news_id'), 'type':'0'},
+                    success:function (args) {
+//                    alert(args);
+                    }
+                });
+            }else {   //+1
+                $(ths).children().each(function (k, v) {
+                    $(ths).addClass('favActived');
+                    $(v).addClass('zan-actived');
+//                    css('background', 'url(http://dig.chouti.com/images/icon_18_118.png?v=2.13) no-repeat 0 -21px');
+                });
+
+                var b = 25;
+                var l = 30;
+                var s = 20;
+                var o = 1.0;
+                $(ths).next().text('+1');
+                var t = setInterval(function () {
+                    if (o <= 0){
+                        clearInterval(t);
+                        $(ths).next().css('display','none');
+                        return
+                    }
+                    $(ths).next().css({'display':'inline-block', 'bottom':b, 'left':l, 'font-size':s + 'px', 'color':'green', 'opacity':o});
+                    b += 5; l += 1;s += 7;o -= 0.1;
+                }, 30);
+
+                var favCount = parseInt($(ths).text());
+                var h = $(ths).html();
+                var index = h.search(String(favCount));
+                $(ths).html(h.slice(0, index) + String(favCount + 1));
+
+                $.ajax({
+                    url:'/upload_file',
+                    type:'get',
+                    data:{'id': $(ths).parent().attr('news_id'), 'type':'1'},
+                    success:function (args) {
+                    alert('args');
+                    }
+                });
+            }
+        }else {
+            alert('请先登录体验更多功能。')
+        }
+    }
+    function fileChanged(ths) {
+//        alert('ths');
+        $('.uploadIframe').css({'display':'inline-block', 'margin-left': '15px', 'border-radius':'3px'});
+        $('.file-label').addClass('hide-page');
+        document.getElementById('uploadIframe').onload = loadMethod;
+        document.getElementById('uploadPicForm').target = 'uploadIframe';
+        document.getElementById('uploadPicForm').submit();
+//        alert($(ths).val());
+//        alert($(ths).contents().find('body').text())
+    }
+    function loadMethod() {
+        alert('loadpic')
+    }
+    function publish_ajax() {
+        if(!$('#div-link').hasClass('hide-page')){
+            $('.items-link').children().each(function (k,ths) {
+                if($(ths).hasClass('newstype-isvalid')){
+                    alert('div-llink');
+                    nid = $(ths).attr('name');
+                }
+            });
+            $.ajax({
+                url:'/publish_art',
+                type:'post',
+                data:{'url': $('.link-url').val().trim(), 'title':$('.link-title').val(),'content':$('.link-content').val(),'type':nid, 'tag':'0'},
+                success:function (args) {
+                    window.location.reload(true);
+                }
+            })
+        }else if(!$('#div-text').hasClass('hide-page')){
+            $('.items-text').children().each(function (k,ths) {
+                if($(ths).hasClass('newstype-isvalid')){
+                    alert('div-text');
+                    nid = $(ths).attr('name');
+                }
+            });
+            $.ajax({
+                url:'/publish_art',
+                type:'post',
+                data:{'content':$('.text-content').val(),'type':nid, 'tag':'1'},
+                success:function (args) {
+                    window.location.reload(true);
+                }
+            })
+        }else if(!$('#div-pictrue').hasClass('hide-page')){
+            $('.items-pic').children().each(function (k,ths) {
+                if($(ths).hasClass('newstype-isvalid')){
+                    nid = $(ths).attr('name');
+                }
+            });
+            $.ajax({
+                url:'/publish_art',
+                type:'post',
+                data:{'url': '', 'content':$('.pic-content').val(),'type':nid, 'tag':'2'},
+                success:function (args) {
+                    window.location.reload(true);
+                }
+            })
+        }
+    }
+    function zoom_in(ths) {
+        $(ths).next().css('display','inline-block');
+        var w = 70;
+        var h = 70;
+        var t = setInterval(function () {
+            if (w >= 210){
+//                $(ths).next().css('display','none');
+                clearInterval(t);
+            }
+            $(ths).next().css({'width':w, 'height':h});
+            w += 10;
+            h += 10;
+        }, 20)
+    }
+    function zoom_out(ths) {
+        var w = 210;
+        var h = 210;
+        var t = setInterval(function () {
+            if (w <= 70){
+                $(ths).css('display','none');
+                clearInterval(t);
+            }
+            $(ths).css({'width':w, 'height':h});
+            w -= 10;
+            h -= 10;
+        }, 20)
+    }
+
+    function get_mail_code() {
+        $('.reg-error-info').addClass('display-hide');
+        var value = $('.mail-inpout').val();
+        if(value.trim().length == 0){
+        }else {
+            $(".obtain_code").css({'cursor':'not-allowed','background':'gray'}).attr('disabled', 'disabled');
+            var itv = 60;
+            var t1 = setInterval(function () {
+                $(".obtain_code").val('已发送'+String(itv));
+                if (itv == 1){
+                    $(".obtain_code").val("获取验证码").css({'cursor':'pointer','background':'#016e90'}).removeAttr('disabled');
+                    clearInterval(t1);
+                }
+                --itv;
+            }, 500);
+
+            $.ajax({
+            url: '/get_mail_code',
+            type: 'get',
+            data: {'mail':value},
+            success: function (args) {
+                    if(args == 'success'){
+
+                    }else {
+//                    alert('error')
+                        $('.reg-error-info').removeClass('display-hide').text('邮箱输入错误，请重新输入。');
+                    }
+                }
+        })
+        }
+        $('.reg-error-info').removeClass('display-hide').text('邮箱不能为空，请重新输入。');
+    }
+
+    function textarea_input(ths) {
+        var count = 150 - $(ths).val().trim().length;
+        if (count <= 0){
+            $(ths).val($(ths).val().slice(0, 150));
+            $('#label-span').text(0);
+            return
+        }
+        $('#label-span').text(count);
+    }
+    function textarea_input1(ths) {
+        var count = 150 - $(ths).val().trim().length;
+        if (count <= 0){
+            $(ths).val($(ths).val().slice(0, 150));
+            $('#label-span1').text(0);
+            return
+        }
+        $('#label-span1').text(count);
+    }
+    function newstype_click(ths) {
+        $(ths).addClass('newstype-isvalid');
+        $(ths).siblings().removeClass('newstype-isvalid');
+    }
+    function http_input_change(ths) {
+        if($(ths).val().trim().length != 0){
+//            alert('val')
+            $(ths).next().removeAttr('disabled').css('background-color','#369');
+        }else {
+            $(ths).next().attr('disabled', '').css('background-color','rgb(204, 220, 239)');
+        }
+    }
+    function newstype_change_click(ths) {
+        $(ths).css('background','url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 -73px');
+        $(ths).siblings().css('background','url(http://dig.chouti.com/images/bottom_mo_128_220.png?v=2.8) no-repeat 0 0');
+        var dom  = document.getElementById(ths.getAttribute('name'));
+        dom.classList.remove('hide-page');
+        $(dom).siblings().addClass('hide-page');
+    }
+    function popPulishMenuClick() {
+        if ($('.pg-headr .account ul input').attr('active') == 'login-active'){
+              document.getElementById('publish-hover').classList.remove('hide-page');
+        }else {
+            alert('请先登录体验更多功能。')
+        }
+    }
+    function div_close_click() {
+        document.getElementById('publish-hover').classList.add('hide-page');
+    }
+    function pop_menu_click() {
+        document.getElementById('d-hover').classList.remove('display-hide');
+    }
+    function hide_popmenu_click() {
+        document.getElementById('d-hover').classList.add('display-hide');
+    }
+    function regist_click() {
+        if ($('.user-input').val().trim().length == 0 || $('.pwd-input').val().trim().length == 0 || $('.mail-inpout').val().trim().length == 0 || $('.checkcode-input').val().trim().length == 0){
+
+            $('.reg-error-info').text('用户名、密码或邮箱输入错误，请检查重新输入。');
+            $('.reg-error-info').removeClass('display-hide');
+
+        }else {
+            $.ajax({
+                url:'/login',
+                type:'get',
+                data:{'username':$('.user-input').val().trim(),'check_code': $('.checkcode-input').val().trim(),'pwd':$('.pwd-input').val().trim(), 'mail': $('.mail-inpout').val().trim()},
+                success:function (args) {
+                   if (args == 'error'){
+                       alert('注册失败，请重新输入。')
+                   }else if(args == 'repeat'){
+                       alert('用户名已经存在，请登录或者重新注册')
+                   }else if(args == 'mail_or_code_error'){
+                       alert('邮箱或者验证码错误，请重试.')
+                   }else {
+//                       $('#myModal-regist').modal('hide')
+//                       $('#myModal').modal('show')
+//                       window.location.reload(true);
+                       location.href = '/';
+                   }
+                }
+
+            })
+        }
+    }
+    function login_click() {
+
+        if ($('.user-input1').val().trim().length == 0 || $('.pwd-input1').val().trim().length == 0|| $('.checkcode-input1').val().trim().length == 0){
+//            alert('用户名或密码输入错误，请重新登录。')
+            $('.log-error-info').removeClass('display-hide').text('用户名或密码输入错误，请重新输入。');
+        }else {
+            $.ajax({
+                url:'/login',
+                type:'post',
+                data:{'username':$('.user-input1').val().trim(),'check_code': $(".checkcode-input1").val().trim(),'pwd':$('.pwd-input1').val().trim()},
+                success:function (args) {
+                   if (args == 'error'){
+                       alert('输入的用户名或密码错误，请重新登录。')
+                   }else if (args == 'code'){
+                       alert('验证码错误！！！')
+                   }else {
+                       window.location.reload(true);
+                   }
+                },
+            })
+        }
+    }
+    function check_code(ths) {
+//        document.getElementById('check_img').src'
+        var imgsrc = $(ths).attr('src');
+        var isc = imgsrc + '?';
+
+        $(ths).attr('src', isc);
+    }
+
+</script>
+</body>
+</html>
